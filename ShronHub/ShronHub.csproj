@@ -8,11 +8,11 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10"/>
+        <PackageReference Include="MongoDB.Driver" Version="3.13.0" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Endpoints\" />
-      <Folder Include="Repository\" />
       <Folder Include="Settings\" />
       <Folder Include="wwwroot\" />
     </ItemGroup>
