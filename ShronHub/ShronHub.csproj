@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <Folder Include="Endpoints\" />
-      <Folder Include="Settings\" />
       <Folder Include="wwwroot\" />
     </ItemGroup>
 
