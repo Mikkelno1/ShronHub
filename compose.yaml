@@ -1,0 +1,56 @@
+﻿services:
+
+  shron_hub:
+    image: shron-hub
+
+    build:
+      context: .
+      dockerfile: ShronHub/Dockerfile
+
+    ports:
+      - "5000:8080"
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+
+      DatabaseSettings__ConnectionString: mongodb://mongo:27017
+      DatabaseSettings__DatabaseName: ShronHub
+      DatabaseSettings__VideoBucketName: Video
+    
+    
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+    develop:
+      watch:
+        - action: rebuild
+          path: ./ShronHub
+
+
+  mongo:
+    image: mongo:7
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - shron-hub-mongo-data:/data/db
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--quiet",
+          "--eval",
+          "db.adminCommand('ping').ok"
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  shron-hub-mongo-data:
+  
