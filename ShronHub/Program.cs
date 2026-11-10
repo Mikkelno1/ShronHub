@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using ShronHub.Endpoints;
 using ShronHub.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.MapVideoEndpoint();
 
 app.UseHttpsRedirection();
 
