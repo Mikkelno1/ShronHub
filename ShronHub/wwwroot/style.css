@@ -1,0 +1,71 @@
+﻿
+/* Target HTML tag type*/
+body
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #28f785;
+    background: radial-gradient(circle, rgba(40, 247, 133, 1) 0%, rgba(255, 97, 239, 1) 100%);
+    margin: 0;
+    
+    h1
+    {
+        color: aqua;
+    }
+    
+}
+
+/* Target class with this name */
+.video-card
+{
+    border: 2px solid black;
+    border-radius: 10px;
+    background: deeppink;
+
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    
+    box-sizing: border-box;
+    
+    video
+    {
+        width: 100%;
+        display: block;
+    }
+}
+
+.video-title {
+    margin: 0;
+    padding: 8px 12px;
+    background: salmon;
+}
+
+.video-content {
+    padding: 15px;
+}
+
+/* # Target a uniq element with this id */
+
+#videoList {
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 480px);
+    justify-content: center;
+    gap: 20px;
+    
+    margin-top: 20px;
+    box-sizing: border-box;
+    
+}
+
+#videoSection
+{
+    width: 100%;
+}
+
+
+.delete-video-button
+{
+    margin-top: 10px;
+}

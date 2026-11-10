@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShronHub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>ShronHub</h1>
+
+<button id="showUploadButton">Upload video</button>
+
+<section id="uploadSection" hidden>
+    <h2>Upload video</h2>
+
+    <form id="uploadForm">
+
+        <label for="videoFile">Video file</label>
+        <input
+                id="videoFile"
+                name="videoFile"
+                type="file"
+                accept="video/*"
+                required>
+
+        <label for="title">Title</label>
+        <input
+                id="title"
+                name="Title"
+                type="text"
+                required>
+
+        <label for="genre">Genre</label>
+        <input
+                id="genre"
+                name="Genre"
+                type="text"
+                required>
+
+        <button type="submit">Upload</button>
+
+    </form>
+</section>
+
+<section id = "videoSection">
+    <h2>Videos</h2>
+
+    <label for="searchInput">Search videos</label>
+    <input
+            id="searchInput"
+            type="text"
+            placeholder="Search by title or genre">
+
+    <div id="videoList"></div>
+    
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
