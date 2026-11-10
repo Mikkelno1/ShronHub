@@ -37,9 +37,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapVideoEndpoint();
-
 app.UseHttpsRedirection();
-
-
 
 app.Run();
