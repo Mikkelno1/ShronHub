@@ -17,3 +17,22 @@ Enjoy the movie
 
 **Bonus step**
 Due to limitations, only movies below 500mb are allowed
+
+
+Swagger guide
+
+**Step 1**
+Upload video
+
+**Step 2**
+Fetch all videos
+
+**Step 3**
+Fetch video by ID
+
+**Step 4**
+Deletes video by ID
+
+**Step 5**
+Get video by ID and streams to browser
+
