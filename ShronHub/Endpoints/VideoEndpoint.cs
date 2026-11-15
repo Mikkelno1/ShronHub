@@ -94,9 +94,9 @@ public static class VideoEndpoint
             return Results.Ok(videoDtos);
         });
         
-        /*
+        
          //for backend searching
-        app.MapGet("/videos", async (string? search, IVideoRepository vidRepo) =>
+        app.MapGet("/videos/search", async (string? search, IVideoRepository vidRepo) =>
         {
             List<Video> videos;
 
@@ -112,7 +112,7 @@ public static class VideoEndpoint
 
             return Results.Ok(videoDtos);
         });
-        */
+        
         
         
         app.MapGet("/videos/{id}/stream", async (string id, IVideoRepository vidRepo) =>

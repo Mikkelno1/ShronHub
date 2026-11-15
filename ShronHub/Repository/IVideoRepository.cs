@@ -9,5 +9,6 @@ public interface IVideoRepository
     Task<List<Video>> GetAllAsync();
     Task<bool> DeleteAsync(string id);
     Task<Stream?> OpenStreamASync(string id);
+    Task<List<Video>> SearchAsync(string query);
     
 }

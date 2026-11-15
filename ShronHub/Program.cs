@@ -75,13 +75,14 @@ app.UseHttpsRedirection();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "StudentStore API"); });
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "ShronHub"); });
 }
 
 app.MapVideoEndpoint();
 
 //For our frontend
-app.UseStaticFiles();
 app.UseDefaultFiles();
+app.UseStaticFiles();
+
 
 app.Run();

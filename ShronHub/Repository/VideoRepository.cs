@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Text.RegularExpressions;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using MongoDB.Driver.GridFS;
@@ -104,6 +105,27 @@ public class VideoRepository : IVideoRepository
             Console.WriteLine(e);
             return null;
         }
+    }
+
+    public async Task<List<Video>> SearchAsync(string query)
+    {
+        var regex = new BsonRegularExpression(Regex.Escape(query), "i");
+
+        var matches = new BsonArray
+        {
+            new BsonDocument("metadata.Title", regex),
+            new BsonDocument("metadata.Genre", regex),
+        };
+        
+        var filter = new BsonDocument("or", matches);
+        
+        var cursor = await _videoBucket.FindAsync(filter);
+        
+        var fileInfos = await cursor.ToListAsync();
+        
+        var videos = fileInfos.Select(ToVideo).ToList();
+        
+        return videos;
     }
 
     private static Video ToVideo(GridFSFileInfo fileInfo)
