@@ -98,7 +98,6 @@ public class VideoRepository : IVideoRepository
         {
             var stream = await _videoBucket.OpenDownloadStreamAsync(objectId);
             return stream;
-
         }
         catch (Exception e)
         {
@@ -107,9 +106,9 @@ public class VideoRepository : IVideoRepository
         }
     }
 
-    public async Task<List<Video>> SearchAsync(string query)
+    public async Task<List<Video>> SearchAsync(string titleOrGenre)
     {
-        var regex = new BsonRegularExpression(Regex.Escape(query), "i");
+        var regex = new BsonRegularExpression(Regex.Escape(titleOrGenre), "i");
 
         var matches = new BsonArray
         {
@@ -117,7 +116,7 @@ public class VideoRepository : IVideoRepository
             new BsonDocument("metadata.Genre", regex),
         };
         
-        var filter = new BsonDocument("or", matches);
+        var filter = new BsonDocument("$or", matches);
         
         var cursor = await _videoBucket.FindAsync(filter);
         
